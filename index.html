@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>TiToeShop - Bán áo thun bằng Pi</title>
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+</head>
+<body>
+  <h1>🧥 Áo thun “Pi to the Moon”</h1>
+  <p><strong>Giá:</strong> 10 Pi</p>
+  <button onclick="login()">Đăng nhập với Pi</button>
+  <button onclick="payPi()">Thanh toán bằng Pi</button>
+
+  <script>
+    Pi.init({ version: "2.0", sandbox: false });
+
+    function login() {
+      Pi.authenticate(['payments'], (auth) => {
+        console.log("Đăng nhập thành công:", auth);
+        alert("Chào bạn " + auth.user.username);
+      }, (error) => {
+        console.error("Lỗi đăng nhập:", error);
+      });
+    }
+
+    function payPi() {
+      Pi.createPayment({
+        amount: 10,
+        memo: "Mua áo thun #001",
+        metadata: { orderId: "001" }
+      }).then(tx => {
+        console.log("Đã tạo giao dịch:", tx);
+        alert("Vui lòng mở ví Pi để xác nhận giao dịch.");
+      }).catch(err => {
+        console.error("Lỗi khi tạo payment:", err);
+      });
+    }
+  </script>
+</body>
+</html>
