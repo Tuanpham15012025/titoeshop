@@ -1,7 +1,7 @@
 # Pioneer Chat Personal Page
 
 **Author:** Maxo23798d (MINH TUAN PHAM)  
-**Slogan:** Customer is the love of ToToeShop  
+**Slogan:** Customer is the love of TiToeShop  
 
 ## Overview
 An idea for Pi Network Brainstorm / Hackathon.  
